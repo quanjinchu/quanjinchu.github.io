@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-08T17:54:18.109Z</updated>
+  <updated>2019-09-09T11:13:50.185Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker compose 安装</title>
+    <link href="http://yoursite.com/2019/09/10/install/"/>
+    <id>http://yoursite.com/2019/09/10/install/</id>
+    <published>2019-09-10T19:00:00.000Z</published>
+    <updated>2019-09-09T11:13:50.185Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>Docker Compose依靠Docker Engine进行任何有意义的工作，所以请确保已在本地或远程安装Docker Engine，具体情况取决于你的配置</p><ul><li>在Mac和Windows的Docker Desktop这样的桌面系统，Docker Compose包含在桌面安装的一部分中</li><li>在Linux系统中，首先安装Docker，然后安装Docker Compose</li><li>以非root用户运行Compose，详情请查阅<a href="https://docs.docker.com/install/linux/linux-postinstall/" target="_blank" rel="noopener">Manage Docker as a non-root user</a></li></ul><h2 id="安装Compose"><a href="#安装Compose" class="headerlink" title="安装Compose"></a>安装Compose</h2><p>请按照以下操作说明在Mac，Windows，Windows Server 2016，Linux系统中安装Compose，找出有关使用pip Python包管理器或安装Compose作为容器的替代方法</p><blockquote><ul><li><input checked disabled type="checkbox"> 安装不同版本</li></ul><p>以下是当前稳定版本（v1.24.1）的Compose安装说明。安装Compose不同版本，用你想要的版本替换给定的版本，Compose版本已在<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener"> Compose repository release page on GitHub</a>列出并可直接下载.要安装Compose的预发行版，请参阅<a href="https://docs.docker.com/compose/install/#install-pre-release-builds" target="_blank" rel="noopener"> install pre-release builds</a>部分</p></blockquote><h3 id="Linux中安装Compose"><a href="#Linux中安装Compose" class="headerlink" title="Linux中安装Compose"></a>Linux中安装Compose</h3><p>在Linux中，你可以从<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">Compose repository release page on GitHub</a>下载Docker Compose二进制文件。按照链接中的说明，在终端中执行<code>curl</code>命令去下载二进制文件。</p><ol><li>执行以下命令下载Docker Compose当前稳定版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></li></ol><blockquote><p>安装Compose不同版本，请将1.24.1替换为您要使用的Compose版本</p></blockquote><p>2.赋予二进制程序可执行权限</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前提条件&quot;&gt;&lt;a href=&quot;#前提条件&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h2&gt;&lt;p&gt;Docker Compose依靠Docker Engine进行任何有意义的工作，所以请确保已在本地或远程安装Docker E
+      
+    
+    </summary>
+    
+    
+      <category term="docker compose" scheme="http://yoursite.com/categories/docker-compose/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Docker compose 概述</title>

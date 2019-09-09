@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2019 | Wh0am11&#39;s Blog</title>
+  <title>Docker compose 安装 | Wh0am11&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -61,7 +61,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -172,78 +172,113 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/2.jpeg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/10/install/">Docker compose 安装</a></h4>
-                            
-                            <p><time datetime="2019-09-10T19:00:00.000Z"><a href="/2019/09/10/install/">2019-09-10</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/09/overview/">Docker compose 概述</a></h4>
-                            
-                            <p><time datetime="2019-09-09T19:00:00.000Z"><a href="/2019/09/09/overview/">2019-09-09</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-09-10T19:00:00.000Z" itemprop="datePublished">
+          2019-09-10
+      </time>
+    
+</span>
+                <h1>Docker compose 安装</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>Docker Compose依靠Docker Engine进行任何有意义的工作，所以请确保已在本地或远程安装Docker Engine，具体情况取决于你的配置</p>
+<ul>
+<li>在Mac和Windows的Docker Desktop这样的桌面系统，Docker Compose包含在桌面安装的一部分中</li>
+<li>在Linux系统中，首先安装Docker，然后安装Docker Compose</li>
+<li>以非root用户运行Compose，详情请查阅<a href="https://docs.docker.com/install/linux/linux-postinstall/" target="_blank" rel="noopener">Manage Docker as a non-root user</a></li>
+</ul>
+<h2 id="安装Compose"><a href="#安装Compose" class="headerlink" title="安装Compose"></a>安装Compose</h2><p>请按照以下操作说明在Mac，Windows，Windows Server 2016，Linux系统中安装Compose，找出有关使用pip Python包管理器或安装Compose作为容器的替代方法</p>
+<blockquote>
+<ul>
+<li><input checked disabled type="checkbox"> 安装不同版本</li>
+</ul>
+<p>以下是当前稳定版本（v1.24.1）的Compose安装说明。安装Compose不同版本，用你想要的版本替换给定的版本，Compose版本已在<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener"> Compose repository release page on GitHub</a>列出并可直接下载.要安装Compose的预发行版，请参阅<a href="https://docs.docker.com/compose/install/#install-pre-release-builds" target="_blank" rel="noopener"> install pre-release builds</a>部分</p>
+</blockquote>
+<h3 id="Linux中安装Compose"><a href="#Linux中安装Compose" class="headerlink" title="Linux中安装Compose"></a>Linux中安装Compose</h3><p>在Linux中，你可以从<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">Compose repository release page on GitHub</a>下载Docker Compose二进制文件。按照链接中的说明，在终端中执行<code>curl</code>命令去下载二进制文件。</p>
+<ol>
+<li>执行以下命令下载Docker Compose当前稳定版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p></p>
+</li>
+</ol>
+<blockquote>
+<p>安装Compose不同版本，请将1.24.1替换为您要使用的Compose版本</p>
+</blockquote>
+<p>2.赋予二进制程序可执行权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/09/09/overview/">
+        Docker compose 概述 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
