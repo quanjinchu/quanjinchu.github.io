@@ -202,16 +202,14 @@
 </blockquote>
 <h3 id="Linux中安装Compose"><a href="#Linux中安装Compose" class="headerlink" title="Linux中安装Compose"></a>Linux中安装Compose</h3><p>在Linux中，你可以从<a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">Compose repository release page on GitHub</a>下载Docker Compose二进制文件。按照链接中的说明，在终端中执行<code>curl</code>命令去下载二进制文件。</p>
 <ol>
-<li>执行以下命令下载Docker Compose当前稳定版本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.24.1/docker-compose-<span class="variable">$(uname -s)</span>-<span class="variable">$(uname -m)</span>"</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
+<li><p>执行以下命令下载Docker Compose当前稳定版本</p>
+<pre><code class="bash">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</code></pre>
 <blockquote>
 <p>安装Compose不同版本，请将1.24.1替换为您要使用的Compose版本</p>
 </blockquote>
-<ol start="2">
-<li>赋予二进制程序可执行权限<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>赋予二进制程序可执行权限</p>
+<pre><code class="bash">sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </li>
 </ol>
 
