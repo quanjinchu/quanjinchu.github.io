@@ -206,124 +206,17 @@
 <p>rabbitmq</p>
 <p>mysql</p>
 <p>mongodb</p>
-<h1 id="docker-commpose-yml"><a href="#docker-commpose-yml" class="headerlink" title="docker-commpose.yml"></a><strong>docker-commpose.yml</strong></h1><pre><code class="yml">version: &#39;3&#39;
-services:
+<h1 id="docker-commpose-yml"><a href="#docker-commpose-yml" class="headerlink" title="docker-commpose.yml"></a><strong>docker-commpose.yml</strong></h1><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  nginx:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-nginx:1.16.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 80:80 指将容器nginx的80端口映射到宿主机的80端口。宿主机端口请根据自己的开发环境修改</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"80:80"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vue前端nginx的配置文件挂载；./docker/nginx/default.conf指当前目录下的docker/nginx/default.conf,可自定义</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vue前端代码挂载,可自定义</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/wwwroot/www/acf_vue/vue/dist:/usr/share/nginx/html"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  phpcli:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-phpcli:7.3.6</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"9999:9999"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/wwwroot/www/acf_hhh:/data/www"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  cnp:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-cnp:latest</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"9000:9000"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># php后端nginx的配置文件挂载；./docker/cnp/conf/nginx.conf指当前目录下的docker/cnp/conf/nginx.conf,可自定义</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"./docker/cnp/conf/nginx.conf:/usr/local/nginx/conf/nginx.conf"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># php后端代码挂载,可自定义</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/home/wwwroot/www/acf_hhh:/home/wwwroot/www/"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  mysql:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mysql:5.6.17</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3306:3306 指将mysql容器的3306端口映射到宿主机的3306端口，宿主机端口请根据自己的开发环境修改</span></span><br><span class="line"><span class="comment"># 外部可通过客户端访问mysql服务 宿主机ip + 自定义port；</span></span><br><span class="line"><span class="comment"># 代码内部访问mysql服务 容器名（mysql） + 3306</span></span><br><span class="line"><span class="comment"># root默认密码为12346，可在容器启动之前自定义</span></span><br><span class="line"><span class="comment"># mysql数据在不删除本地挂载的情况，重启容器不会被删除</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3306:3306"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/data/db_mysql/data:/var/lib/mysql"</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">MYSQL_ROOT_PASSWORD=123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">redis:3.2.3</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">redis-server</span> <span class="bullet">--requirepass</span> <span class="string">"123456"</span> <span class="bullet">--appendonly</span> <span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6379:6379 指将redis容器的6379端口映射到宿主机的6379端口，宿主机端口请根据自己的开发环境修改</span></span><br><span class="line"><span class="comment"># 外部可通过客户端访问redis服务 宿主机ip + 自定义port；</span></span><br><span class="line"><span class="comment"># 代码内部访问redis服务 容器名（redis） + 6379</span></span><br><span class="line"><span class="comment"># 默认密码为12346，可在容器启动之前自定义</span></span><br><span class="line"><span class="comment"># redis数据在不删除本地挂载的情况，重启容器不会被删除</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"6379:6379"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/data/db_redis:/data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  mongodb:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mongo:3.4.10</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">[--auth]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 27017:27017 指将mongodb容器的27017端口映射到宿主机的27017端口，宿主机端口请根据自己的开发环境修改</span></span><br><span class="line"><span class="comment"># 外部可通过客户端访问redis服务 宿主机ip + 自定义port；</span></span><br><span class="line"><span class="comment"># 代码内部访问mongodb服务 容器名（mongodb） + 27017</span></span><br><span class="line"><span class="comment"># 相关库以及账号密码配置，请查看 注意事项</span></span><br><span class="line"><span class="comment"># redis数据在不删除本地挂载的情况，重启容器不会被删除</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"27017:27017"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">/data/db_mongo:/data/db</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  rabbitmq:</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">newdev</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">rabbitmq:3.7.0-management</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5672:5672 指将mongodb容器的5672端口映射到宿主机的5672端口，宿主机端口请根据自己的开发环境修改</span></span><br><span class="line"><span class="comment"># 外部可通过客户端访问rabbitmq服务 宿主机ip + 自定义port；</span></span><br><span class="line"><span class="comment"># 代码内部访问mongodb服务 容器名（rabbitmq） + 5672</span></span><br><span class="line"><span class="comment"># 15672是rabbitmq web的端口，可通过宿主机ip + 自定义访问，账号密码均为 guest</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"5672:5672"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"15672:15672"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"/data/db_rabbitmq:/var/lib/rabbitmq"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line"><span class="attr">  newdev:</span></span><br></pre></td></tr></table></figure>
 
-  nginx:
-    networks:
-      - newdev
-    image: registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-nginx:1.16.0
-
-# 80:80 指将容器nginx的80端口映射到宿主机的80端口。宿主机端口请根据自己的开发环境修改
-    ports:
-      - &quot;80:80&quot;
-    volumes:
-
-# vue前端nginx的配置文件挂载；./docker/nginx/default.conf指当前目录下的docker/nginx/default.conf,可自定义
-      - &quot;./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf&quot;
-
-# vue前端代码挂载,可自定义
-      - &quot;/home/wwwroot/www/acf_vue/vue/dist:/usr/share/nginx/html&quot;
-
-  phpcli:
-    networks:
-      - newdev
-    image: registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-phpcli:7.3.6
-    ports:
-      - &quot;9999:9999&quot;
-    volumes:
-      - &quot;/home/wwwroot/www/acf_hhh:/data/www&quot;
-
-  cnp:
-    networks:
-      - newdev
-    image: registry-intl.cn-shanghai.aliyuncs.com/mywallet/dev-cnp:latest
-    ports:
-      - &quot;9000:9000&quot;
-    volumes:
-
-# php后端nginx的配置文件挂载；./docker/cnp/conf/nginx.conf指当前目录下的docker/cnp/conf/nginx.conf,可自定义
-      - &quot;./docker/cnp/conf/nginx.conf:/usr/local/nginx/conf/nginx.conf&quot;
-
-# php后端代码挂载,可自定义
-      - &quot;/home/wwwroot/www/acf_hhh:/home/wwwroot/www/&quot;
-
-  mysql:
-    networks:
-      - newdev
-    image: mysql:5.6.17
-
-# 3306:3306 指将mysql容器的3306端口映射到宿主机的3306端口，宿主机端口请根据自己的开发环境修改
-# 外部可通过客户端访问mysql服务 宿主机ip + 自定义port；
-# 代码内部访问mysql服务 容器名（mysql） + 3306
-# root默认密码为12346，可在容器启动之前自定义
-# mysql数据在不删除本地挂载的情况，重启容器不会被删除
-
-    ports:
-      - &quot;3306:3306&quot;
-    volumes:
-      - &quot;/data/db_mysql/data:/var/lib/mysql&quot;
-    environment:
-      - MYSQL_ROOT_PASSWORD=123456
-
-  redis:
-    networks:
-      - newdev
-    image: redis:3.2.3
-    command: redis-server --requirepass &quot;123456&quot; --appendonly yes
-
-# 6379:6379 指将redis容器的6379端口映射到宿主机的6379端口，宿主机端口请根据自己的开发环境修改
-# 外部可通过客户端访问redis服务 宿主机ip + 自定义port；
-# 代码内部访问redis服务 容器名（redis） + 6379
-# 默认密码为12346，可在容器启动之前自定义
-# redis数据在不删除本地挂载的情况，重启容器不会被删除
-
-    ports:
-      - &quot;6379:6379&quot;
-    volumes:
-      - /data/db_redis:/data
-
-  mongodb:
-    networks:
-      - newdev
-    image: mongo:3.4.10
-    command: [--auth]
-
-# 27017:27017 指将mongodb容器的27017端口映射到宿主机的27017端口，宿主机端口请根据自己的开发环境修改
-# 外部可通过客户端访问redis服务 宿主机ip + 自定义port；
-# 代码内部访问mongodb服务 容器名（mongodb） + 27017
-# 相关库以及账号密码配置，请查看 注意事项
-# redis数据在不删除本地挂载的情况，重启容器不会被删除
-
-    ports:
-      - &quot;27017:27017&quot;
-    volumes:
-      - /data/db_mongo:/data/db
-
-  rabbitmq:
-    networks:
-      - newdev
-    image: rabbitmq:3.7.0-management
-
-# 5672:5672 指将mongodb容器的5672端口映射到宿主机的5672端口，宿主机端口请根据自己的开发环境修改
-# 外部可通过客户端访问rabbitmq服务 宿主机ip + 自定义port；
-# 代码内部访问mongodb服务 容器名（rabbitmq） + 5672
-# 15672是rabbitmq web的端口，可通过宿主机ip + 自定义访问，账号密码均为 guest
-
-    ports:
-      - &quot;5672:5672&quot;
-      - &quot;15672:15672&quot;
-    volumes:
-      - &quot;/data/db_rabbitmq:/var/lib/rabbitmq&quot;
-
-networks:
-  newdev:</code></pre>
 <p>docker-compose安装：</p>
-<pre><code class="bash">curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose &amp;&amp; chmod u+x /usr/local/bin/docker-compose</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/<span class="built_in">local</span>/bin/docker-compose &amp;&amp; chmod u+x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
 <p>启动容器：</p>
-<pre><code class="bash">docker-compose up -d</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
 <p>删除容器：</p>
-<pre><code class="bash">docker-compose down</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose down</span><br></pre></td></tr></table></figure>
+
 <h1 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><strong>注意事项：</strong></h1><ul>
 <li><p>mysql启动之后，需要通过客户端连接到mysql，新建项目对应的database  </p>
 </li>
@@ -332,33 +225,29 @@ networks:
 </ul>
 <p>进入容器，输入mongo，回车</p>
 <p>进入管理库 </p>
-<pre><code class="bash">use admin</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use admin</span><br></pre></td></tr></table></figure>
+
 <p>在管理库中创建超级用户</p>
-<pre><code class="bash">db.createUser(
-  {
-    user: &quot;toor&quot;,
-    pwd: &quot;123456&quot;,
-    roles: [ { role: &quot;root&quot;, db: &quot;admin&quot; } ]
-  }
-)</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: <span class="string">"toor"</span>,</span><br><span class="line">    <span class="built_in">pwd</span>: <span class="string">"123456"</span>,</span><br><span class="line">    roles: [ &#123; role: <span class="string">"root"</span>, db: <span class="string">"admin"</span> &#125; ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>登录超级用户</p>
-<pre><code class="bash">db.auth(&#39;toor&#39;,&#39;123456&#39;)</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">db.auth(<span class="string">'toor'</span>,<span class="string">'123456'</span>)</span><br></pre></td></tr></table></figure>
+
 <p>进入新建库newacf</p>
-<pre><code class="bash">use newacf</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use newacf</span><br></pre></td></tr></table></figure>
+
 <p>在test库中创建用户</p>
-<pre><code class="bash">db.createUser(
-  {
-    user: &quot;newacf&quot;,
-    pwd: &quot;123456&quot;,
-    roles: [ { role: &quot;dbOwner&quot;, db: &quot;newacf&quot; } ]
-  }
-)</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: <span class="string">"newacf"</span>,</span><br><span class="line">    <span class="built_in">pwd</span>: <span class="string">"123456"</span>,</span><br><span class="line">    roles: [ &#123; role: <span class="string">"dbOwner"</span>, db: <span class="string">"newacf"</span> &#125; ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>登录test库的用户</p>
-<pre><code class="bash">db.auth(&#39;newacf&#39;,&#39;123456&#39;)</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">db.auth(<span class="string">'newacf'</span>,<span class="string">'123456'</span>)</span><br></pre></td></tr></table></figure>
+
 <p>在test库任意新建一张表</p>
-<pre><code class="bash">db.newacf.insert({&#39;x&#39;:1})</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">db.newacf.insert(&#123;<span class="string">'x'</span>:1&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>退出mongo客户端</p>
-<pre><code class="bash">exit</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
 
             <div class="clearfix"></div>
             <hr class="nogutter">
