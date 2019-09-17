@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2019/9 | Wh0am11&#39;s Blog</title>
+  <title>Docker compose cli 环境变量 | Wh0am11&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -61,7 +61,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -172,108 +172,109 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/2.jpeg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/13/environmetns_variables_docker_compose/">Docker compose cli 环境变量</a></h4>
-                            
-                            <p><time datetime="2019-09-13T19:00:00.000Z"><a href="/2019/09/13/environmetns_variables_docker_compose/">2019-09-13</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/12/overview_of_docker_compose_cli/">docker-compose cli 概述</a></h4>
-                            
-                            <p><time datetime="2019-09-12T19:00:00.000Z"><a href="/2019/09/12/overview_of_docker_compose_cli/">2019-09-12</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/11/getting_start/">Docker compose 使用</a></h4>
-                            
-                            <p><time datetime="2019-09-11T19:00:00.000Z"><a href="/2019/09/11/getting_start/">2019-09-11</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/10/install/">Docker compose 安装</a></h4>
-                            
-                            <p><time datetime="2019-09-10T19:00:00.000Z"><a href="/2019/09/10/install/">2019-09-10</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/09/09/overview/">Docker compose 概述</a></h4>
-                            
-                            <p><time datetime="2019-09-09T19:00:00.000Z"><a href="/2019/09/09/overview/">2019-09-09</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-09-13T19:00:00.000Z" itemprop="datePublished">
+          2019-09-13
+      </time>
+    
+</span>
+                <h1>Docker compose cli 环境变量</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>有几个环境变量可供你配置Docker Compose命令行行为</p>
+<p>以<code>DOCKR_</code>为前缀的变量与用于配置Docker 命令行客户端的变量相同，如果你使用<code>docker-machine</code>，<code>eval &quot;$(docker-machine env my-docker-vm)&quot;</code>命令能将它们设置为正确的值</p>
+<blockquote>
+<p>注意：一些变量也可以使用<code>environment file</code>(<a href="https://docs.docker.com/compose/env-file/)提供" target="_blank" rel="noopener">https://docs.docker.com/compose/env-file/)提供</a></p>
+</blockquote>
+<h2 id="COMPOSE-PROJECT-NAME"><a href="#COMPOSE-PROJECT-NAME" class="headerlink" title="COMPOSE_PROJECT_NAME"></a>COMPOSE_PROJECT_NAME</h2><p>用于配置项目名称，当启动时，这个值将与service名称一起添加到容器中。例如，你的项目名称为 <code>myapp</code> 并且包含两个services <code>db</code> 和 <code>web</code>，然后Compose分别启动名为 <code>myapp_db_1</code> 和 <code>myapp_web_1</code> 的容器</p>
+<p>若不配置，<code>COMPOSE_PROJECT_NAME</code> 默认为项目目录的文件夹名。另请参见-p <code>command-line option</code>(<a href="https://docs.docker.com/compose/reference/overview/" target="_blank" rel="noopener">https://docs.docker.com/compose/reference/overview/</a>)</p>
+<h2 id="COMPOSE-FILE"><a href="#COMPOSE-FILE" class="headerlink" title="COMPOSE_FILE"></a>COMPOSE_FILE</h2><p>指定Compose文件的路径，若不提供，Compose将在当前目录中寻找名为<code>docker-compose.yml</code>的文件。然后遍历每个父目录直到找到名为<code>docker-compose.yml</code>的文件</p>
+<p>此变量支持由路径分隔符分隔的多个Compose文件（在Linux和macOS上，路径分隔符为：，在Windows上为;）。例如：<code>COMPOSE_FILE=docker-compose.yml:docker-compose.prod.yml</code>，也可以使用<code>COMPOSE_PATH_SEPARATOR</code>自定义路径分隔符。另请参见-f <code>command-line option</code></p>
+<h2 id="COMPOSE-API-VERSION"><a href="#COMPOSE-API-VERSION" class="headerlink" title="COMPOSE_API_VERSION"></a>COMPOSE_API_VERSION</h2><p>Docker API仅支持来自报告特定版本的客户端的请求。如果你使用<code>docker-compose</code>时接收到<code>client and server don&#39;t have same version</code>的报错，你可以通过设置这个环境变量来解决此错误，设置版本值与服务器版本相匹配</p>
+<p>设置此变量，旨在解决需要在客户端和服务器版本不匹配的情况下临时运行的情况。 例如，如果可以升级客户端的话，必须先升级服务器。</p>
+<h2 id="DOCKER-HOST"><a href="#DOCKER-HOST" class="headerlink" title="DOCKER_HOST"></a>DOCKER_HOST</h2><p>设置<code>docker</code>守护进程的URL，和Docker客户端一样，默认为<code>unix:///var/run/docker.sock</code></p>
+<h2 id="DOCKER-TLS-VERIFY"><a href="#DOCKER-TLS-VERIFY" class="headerlink" title="DOCKER_TLS_VERIFY"></a>DOCKER_TLS_VERIFY</h2><p>配置用于TLS验证的<code>ca.pem</code>,<code>cert.pem</code>,<code>key.pem</code>等文件的路径，默认为<code>~/.docker</code></p>
+<h2 id="COMPOSE-HTTP-TIMEOUT"><a href="#COMPOSE-HTTP-TIMEOUT" class="headerlink" title="COMPOSE_HTTP_TIMEOUT"></a>COMPOSE_HTTP_TIMEOUT</h2><p>配置在Compose认为失败之前允许挂起对Docker守护程序的请求的时间（以秒为单位）。 默认为60秒</p>
+<h2 id="COMPOSE-TLS-VERSION"><a href="#COMPOSE-TLS-VERSION" class="headerlink" title="COMPOSE_TLS_VERSION"></a>COMPOSE_TLS_VERSION</h2><p>配置TLS与<code>docker</code>守护进程通信所用的TLS版本，默认为<code>TLSv1</code>，支持的值包括：TLSv1，TLSv1_1，TLSv1_2</p>
+<h2 id="COMPOSE-CONVERT-WINDOWS-PATHS"><a href="#COMPOSE-CONVERT-WINDOWS-PATHS" class="headerlink" title="COMPOSE_CONVERT_WINDOWS_PATHS"></a>COMPOSE_CONVERT_WINDOWS_PATHS</h2><p>在卷定义中启用从Windows样式到Unix样式的路径转换。 Windows上的Docker Machine和Docker Toolbox的用户应始终设置此项。 默认值为0.支持的值：true或1表示启用，false或0表示禁用</p>
+<h2 id="COMPOSE-PATH-SEPARATOR"><a href="#COMPOSE-PATH-SEPARATOR" class="headerlink" title="COMPOSE_PATH_SEPARATOR"></a>COMPOSE_PATH_SEPARATOR</h2><p>如果设置，使用此字符做作为分隔符分隔<code>COMPOSE_FILE</code>环境变量的值</p>
+<h2 id="COMPOSE-FORCE-WINDOWS-HOST"><a href="#COMPOSE-FORCE-WINDOWS-HOST" class="headerlink" title="COMPOSE_FORCE_WINDOWS_HOST"></a>COMPOSE_FORCE_WINDOWS_HOST</h2><p>如果设置，则解析使用短语法的卷声明，假设主机路径是Windows路径，即使Compose在基于UNIX的系统上运行也是如此。 支持的值：true或1表示启用，false或0表示禁用</p>
+<h2 id="COMPOSE-IGNORE-ORPHANS"><a href="#COMPOSE-IGNORE-ORPHANS" class="headerlink" title="COMPOSE_IGNORE_ORPHANS"></a>COMPOSE_IGNORE_ORPHANS</h2><p>如果设置，Compose不会尝试检测项目的孤立容器。 支持的值：true或1表示启用，false或0表示禁用</p>
+<h2 id="COMPOSE-PARALLEL-LIMIT"><a href="#COMPOSE-PARALLEL-LIMIT" class="headerlink" title="COMPOSE_PARALLEL_LIMIT"></a>COMPOSE_PARALLEL_LIMIT</h2><p>设置Compose可以并行执行的操作数限制。 默认值为64，不能设置为低于2</p>
+<h2 id="COMPOSE-INTERACTIVE-NO-CLI"><a href="#COMPOSE-INTERACTIVE-NO-CLI" class="headerlink" title="COMPOSE_INTERACTIVE_NO_CLI"></a>COMPOSE_INTERACTIVE_NO_CLI</h2><p>如果设置，Compose不会尝试使用Docker CLI进行交互式运行和执行操作。 在上述操作需要CLI的Windows上，此选项不可用。 支持：true或1表示启用，false或0表示禁用</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p></p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/09/12/overview_of_docker_compose_cli/">
+        docker-compose cli 概述 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 

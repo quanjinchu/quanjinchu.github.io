@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/09/13/environmetns_variables_docker_compose/</loc>
+    
+    <lastmod>2019-09-17T03:09:30.336Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/09/12/overview_of_docker_compose_cli/</loc>
+    
+    <lastmod>2019-09-17T03:05:16.019Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/09/11/getting_start/</loc>
     
-    <lastmod>2019-09-10T13:24:39.749Z</lastmod>
+    <lastmod>2019-09-10T15:19:34.456Z</lastmod>
     
   </url>
   
