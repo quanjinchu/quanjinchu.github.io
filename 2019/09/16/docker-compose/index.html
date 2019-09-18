@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>docker-compose build | Wh0am11&#39;s Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Wh0am11's Blog">
+    <meta name="author" content="wh0am11">
+    <meta name="description" content="xxx" />
+    <meta name="keywords" content="zzz xxx ccc" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Wh0am11&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/docker-compose/" class="animsition-link">docker compose<small>(6)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.quanjinchu.com/" class="animsition-link">quanjinchu</a></li>
+                    
+                    <li><a href="http://www.quanjinchu.com/" class="animsition-link">quanjinchu</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Wh0am11's Blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/quanjinchu" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-09-16T19:00:00.000Z" itemprop="datePublished">
+          2019-09-16
+      </time>
+    
+</span>
+                <h1>docker-compose build</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="docker-compose-build"><a href="#docker-compose-build" class="headerlink" title="docker-compose build"></a>docker-compose build</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: build [options] [--build-arg key=val...] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --compress              使用gzip压缩构建上下文</span><br><span class="line">    --force-rm              始终移除中间容器</span><br><span class="line">    --no-cache              Do not use cache when building the image.</span><br><span class="line">    --pull                  Always attempt to pull a newer version of the image.</span><br><span class="line">    -m, --memory MEM        Sets memory <span class="built_in">limit</span> <span class="keyword">for</span> the build container.</span><br><span class="line">    --build-arg key=val     Set build-time variables <span class="keyword">for</span> services.</span><br><span class="line">    --parallel              并行构建镜像</span><br></pre></td></tr></table></figure>
+
+<p>services被构建一次然后默认标记为 <code>project_service</code>，例如 <code>composetest_db</code>。如果Compose文件指定镜像名称，镜像被标记为此名称。事先替换任何变量， 详情见 <a href="https://docs.docker.com/compose/compose-file/#variable-substitution" target="_blank" rel="noopener">variable substitution</a></p>
+<p>如果更改service’s Dockerfile或者构建目录的上下文，执行<code>docker-compose build</code>重构</p>
+<h3 id="docker-compose-bundle"><a href="#docker-compose-bundle" class="headerlink" title="docker-compose bundle"></a>docker-compose bundle</h3><h3 id="docker-compose-config"><a href="#docker-compose-config" class="headerlink" title="docker-compose config"></a>docker-compose config</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: config [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --resolve-image-digests  Pin image tags to digests.</span><br><span class="line">    --no-interpolate         Don<span class="string">'t interpolate environment variables.</span></span><br><span class="line"><span class="string">    -q, --quiet              Only validate the configuration, don'</span>t <span class="built_in">print</span> anything.</span><br><span class="line">    --services               Print the service names, one per line.</span><br><span class="line">    --volumes                Print the volume names, one per line.</span><br><span class="line">    --<span class="built_in">hash</span>=<span class="string">"*"</span>               Print the service config <span class="built_in">hash</span>, one per line.</span><br><span class="line">                             Set <span class="string">"service1,service2"</span> <span class="keyword">for</span> a list of specified services</span><br><span class="line">                             or use the wildcard symbol to display all services.</span><br></pre></td></tr></table></figure>
+
+<p>验证并查看Compose file</p>
+<h3 id="docker-compose-create"><a href="#docker-compose-create" class="headerlink" title="docker-compose create"></a>docker-compose create</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Creates containers <span class="keyword">for</span> a service.</span><br><span class="line">This <span class="built_in">command</span> is deprecated. Use the `up` <span class="built_in">command</span> with `--no-start` instead.</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-down"><a href="#docker-compose-down" class="headerlink" title="docker-compose down"></a>docker-compose down</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: down [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --rmi <span class="built_in">type</span>              Remove images. Type must be one of:</span><br><span class="line">                              <span class="string">'all'</span>: Remove all images used by any service.</span><br><span class="line">                              <span class="string">'local'</span>: Remove only images that don<span class="string">'t have a</span></span><br><span class="line"><span class="string">                              custom tag set by the `image` field.</span></span><br><span class="line"><span class="string">    -v, --volumes           Remove named volumes declared in the `volumes`</span></span><br><span class="line"><span class="string">                            section of the Compose file and anonymous volumes</span></span><br><span class="line"><span class="string">                            attached to containers.</span></span><br><span class="line"><span class="string">    --remove-orphans        Remove containers for services not defined in the</span></span><br><span class="line"><span class="string">                            Compose file</span></span><br><span class="line"><span class="string">    -t, --timeout TIMEOUT   Specify a shutdown timeout in seconds.</span></span><br><span class="line"><span class="string">                            (default: 10)</span></span><br></pre></td></tr></table></figure>
+
+<p>停止容器并删除由 <code>up</code> 创建的容器，网络，卷，镜像</p>
+<p>默认情况下，唯一被删除的是：</p>
+<ul>
+<li>Compose file定义的service生成的容器</li>
+<li>Compose file中 <code>networks</code> 部分定义的网络</li>
+<li>默认网络，如果已经被使用</li>
+</ul>
+<p>定义为 <code>external</code> 的Networks 和 volumes永远不会被删除 </p>
+<h3 id="docker-compose-events"><a href="#docker-compose-events" class="headerlink" title="docker-compose events"></a>docker-compose events</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: events [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --json      Output events as a stream of json objects</span><br></pre></td></tr></table></figure>
+
+<p>流式处理项目中每个容器的事件</p>
+<h3 id="docker-compose-exec"><a href="#docker-compose-exec" class="headerlink" title="docker-compose exec"></a>docker-compose exec</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: <span class="built_in">exec</span> [options] [-e KEY=VAL...] SERVICE COMMAND [ARGS...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -d, --detach      Detached mode: Run <span class="built_in">command</span> <span class="keyword">in</span> the background.</span><br><span class="line">    --privileged      Give extended privileges to the process.</span><br><span class="line">    -u, --user USER   Run the <span class="built_in">command</span> as this user.</span><br><span class="line">    -T                Disable pseudo-tty allocation. By default `docker-compose <span class="built_in">exec</span>`</span><br><span class="line">                      allocates a TTY.</span><br><span class="line">    --index=index     index of the container <span class="keyword">if</span> there are multiple</span><br><span class="line">                      instances of a service [default: 1]</span><br><span class="line">    -e, --env KEY=VAL Set environment variables (can be used multiple <span class="built_in">times</span>,</span><br><span class="line">                      not supported <span class="keyword">in</span> API &lt; 1.25)</span><br><span class="line">    -w, --workdir DIR Path to workdir directory <span class="keyword">for</span> this <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
+
+<p>相当于docker exec，使用此子命令，您可以在服务中运行任意命令。 默认情况下，命令分配TTY，因此您可以使用诸如<code>docker-compose exec web sh</code>之类的命令来获取交互式提示</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose -f docker-compose.yml <span class="built_in">exec</span> --index=2 webapp /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-kill"><a href="#docker-compose-kill" class="headerlink" title="docker-compose kill"></a>docker-compose kill</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: <span class="built_in">kill</span> [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -s SIGNAL         SIGNAL to send to the container.</span><br><span class="line">                      Default signal is SIGKILL.</span><br></pre></td></tr></table></figure>
+
+<p>通过发送<code>SIGKILL</code>信号强制停止正在运行的容器，发送的信息是可选的，例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose <span class="built_in">kill</span> -s SIGINT</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-logs"><a href="#docker-compose-logs" class="headerlink" title="docker-compose logs"></a>docker-compose logs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: logs [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --no-color          Produce monochrome output.</span><br><span class="line">    -f, --follow        Follow <span class="built_in">log</span> output.</span><br><span class="line">    -t, --timestamps    Show timestamps.</span><br><span class="line">    --tail=<span class="string">"all"</span>        Number of lines to show from the end of the logs</span><br><span class="line">                        <span class="keyword">for</span> each container.</span><br></pre></td></tr></table></figure>
+
+<p>通过service显示日志输出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker-compose -f docker-compose.yml logs -f webapp</span></span><br><span class="line">Attaching to composetest_webapp_2, composetest_webapp_1</span><br><span class="line">webapp_1   | 172.18.0.4 - - [17/Sep/2019:08:02:34 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">webapp_1   | 172.18.0.4 - - [17/Sep/2019:08:03:07 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">webapp_1   | 172.18.0.4 - - [17/Sep/2019:08:03:21 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">webapp_2   | 172.18.0.4 - - [17/Sep/2019:08:03:51 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以通过容器显示，但是只能查看单个容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker logs -f 25fea395cdae</span></span><br><span class="line">172.18.0.4 - - [17/Sep/2019:08:02:34 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">172.18.0.4 - - [17/Sep/2019:08:03:07 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">172.18.0.4 - - [17/Sep/2019:08:03:21 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br><span class="line">172.18.0.4 - - [17/Sep/2019:08:05:43 +0000] <span class="string">"GET / HTTP/1.1"</span> 200 612 <span class="string">"-"</span> <span class="string">"curl/7.29.0"</span> <span class="string">"-"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-pause"><a href="#docker-compose-pause" class="headerlink" title="docker-compose pause"></a>docker-compose pause</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: pause [SERVICE...]</span><br></pre></td></tr></table></figure>
+
+<p>暂停正在service中正在运行的容器，也可以通过 <code>docker-compose unpause</code> 取消暂停</p>
+<h3 id="docker-compose-port"><a href="#docker-compose-port" class="headerlink" title="docker-compose port"></a>docker-compose port</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: port [options] SERVICE PRIVATE_PORT</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --protocol=proto  tcp or udp [default: tcp]</span><br><span class="line">    --index=index     index of the container <span class="keyword">if</span> there are multiple</span><br><span class="line">                      instances of a service [default: 1]</span><br></pre></td></tr></table></figure>
+
+<p>若容器端口已映射公共端口，可通过<code>docker-compose port service PRIVATE_PORT</code>打印出所以映射的公共端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker-compose port web 5000</span></span><br><span class="line">0.0.0.0:5000</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-ps"><a href="#docker-compose-ps" class="headerlink" title="docker-compose ps"></a>docker-compose ps</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: ps [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -q, --quiet          Only display IDs</span><br><span class="line">    --services           Display services</span><br><span class="line">    --filter KEY=VAL     Filter services by a property</span><br></pre></td></tr></table></figure>
+
+<p>列出项目中当前的所有容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker-compose -f docker-compose.yml ps</span></span><br><span class="line">       Name                      Command               State           Ports         </span><br><span class="line">-------------------------------------------------------------------------------------</span><br><span class="line">composetest_redis_1   docker-entrypoint.sh redis ...   Up      6379/tcp              </span><br><span class="line">composetest_web_1     flask run                        Up      0.0.0.0:5000-&gt;5000/tcp</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-pull"><a href="#docker-compose-pull" class="headerlink" title="docker-compose pull"></a>docker-compose pull</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: pull [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --ignore-pull-failures  Pull what it can and ignores images with pull failures.</span><br><span class="line">    --parallel              Deprecated, pull multiple images <span class="keyword">in</span> parallel (enabled by default).</span><br><span class="line">    --no-parallel           Disable parallel pulling.</span><br><span class="line">    -q, --quiet             Pull without printing progress information</span><br><span class="line">    --include-deps          Also pull services declared as dependencies</span><br></pre></td></tr></table></figure>
+
+<p>拉取 <code>docker-compose.yml</code> 或者 <code>docker-stack.yml</code> 中定义的service相关的镜像，但是不启动基于这些镜像的容器</p>
+<p>例如，假设你有来自<code>Quickstart: Compose and Rails</code>(<a href="https://docs.docker.com/compose/rails/" target="_blank" rel="noopener">https://docs.docker.com/compose/rails/</a>) 的 <code>docker-compose.yml</code> 文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">bundle</span> <span class="string">exec</span> <span class="string">rails</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">3000</span> <span class="bullet">-b</span> <span class="string">'0.0.0.0'</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">.:/myapp</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3000:3000"</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">db</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你在定义了service的 <code>docker-compose.yml</code> 所在的目录中执行 <code>docker-compose pull ServiceName</code> ，Docker会拉取相关镜像。例如，拉取例子中 <code>db</code> service相关的 <code>postgres</code> 镜像，你需要执行 <code>docker-compose pull web</code> 。若拉取所有service的镜像，执行 <code>docker-compose pull</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose pull db</span><br><span class="line">Pulling db (postgres:latest)...</span><br><span class="line">latest: Pulling from library/postgres</span><br><span class="line">cd0a524342ef: Pull complete</span><br><span class="line">9c784d04dcb0: Pull complete</span><br><span class="line">d99dddf7e662: Pull complete</span><br><span class="line">e5bff71e3ce6: Pull complete</span><br><span class="line">cb3e0a865488: Pull complete</span><br><span class="line">31295d654cd5: Pull complete</span><br><span class="line">fc930a4e09f5: Pull complete</span><br><span class="line">8650cce8ef01: Pull complete</span><br><span class="line">61949acd8e52: Pull complete</span><br><span class="line">527a203588c0: Pull complete</span><br><span class="line">26dec14ac775: Pull complete</span><br><span class="line">0efc0ed5a9e5: Pull complete</span><br><span class="line">40cd26695b38: Pull complete</span><br><span class="line">Digest: sha256:fd6c0e2a9d053bebb294bb13765b3e01be7817bf77b01d58c2377ff27a4a46dc</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> postgres:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-push"><a href="#docker-compose-push" class="headerlink" title="docker-compose push"></a>docker-compose push</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: push [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    --ignore-push-failures  Push what it can and ignores images with push failures.</span><br></pre></td></tr></table></figure>
+
+<p>上传service的镜像到它们各自的 <code>registry/repository</code></p>
+<ul>
+<li>你正在上传你已在本地构建好的镜像</li>
+<li>你拥有镜像仓库的构建密钥，即你拥有镜像仓库的权限</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  service1:</span><br><span class="line">    build: .</span><br><span class="line">    image: localhost:5000/yourimage  <span class="comment"># goes to local registry</span></span><br><span class="line"></span><br><span class="line">  service2:</span><br><span class="line">    build: .</span><br><span class="line">    image: youruser/yourimage  <span class="comment"># goes to youruser DockerHub registry</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-restart"><a href="#docker-compose-restart" class="headerlink" title="docker-compose restart"></a>docker-compose restart</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: restart [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -t, --timeout TIMEOUT      Specify a shutdown timeout <span class="keyword">in</span> seconds.</span><br><span class="line">                             (default: 10)</span><br></pre></td></tr></table></figure>
+
+<p>重启所有停止和正在运行的service</p>
+<p>如果你更改了 <code>docker-compose.yml</code> 配置，执行此命令不会让这些更改生效</p>
+<p>例如，更改环境变量（添加于在容器构建之后，但是在容器命令执行之前）在重启之后不会更新</p>
+<h3 id="docker-compose-rm"><a href="#docker-compose-rm" class="headerlink" title="docker-compose rm"></a>docker-compose rm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: rm [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -f, --force   Don<span class="string">'t ask to confirm removal</span></span><br><span class="line"><span class="string">    -s, --stop    Stop the containers, if required, before removing</span></span><br><span class="line"><span class="string">    -v            Remove any anonymous volumes attached to containers</span></span><br></pre></td></tr></table></figure>
+
+<p>移除已停止的容器</p>
+<p>默认情况下，附属于容器的匿名卷不会被移除，你可以通过 <code>-v</code> 对其进行覆盖。使用 <code>docker volume ls</code> 列出所有卷</p>
+<p>当容器被移除后，任何不在卷中的数据会丢失</p>
+<p>在无选项的情况下执行命令也能移除<code>docker-compose up</code> 和 <code>docker-compose run</code> 创建的一次性容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose rm</span><br><span class="line">Going to remove djangoquickstart_web_run_1</span><br><span class="line">Are you sure? [yN] y</span><br><span class="line">Removing djangoquickstart_web_run_1 ... <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-run"><a href="#docker-compose-run" class="headerlink" title="docker-compose run"></a>docker-compose run</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage:</span><br><span class="line">    run [options] [-v VOLUME...] [-p PORT...] [-e KEY=VAL...] [-l KEY=VALUE...]</span><br><span class="line">        SERVICE [COMMAND] [ARGS...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -d, --detach          Detached mode: Run container <span class="keyword">in</span> the background, <span class="built_in">print</span></span><br><span class="line">                          new container name.</span><br><span class="line">    --name NAME           Assign a name to the container</span><br><span class="line">    --entrypoint CMD      Override the entrypoint of the image.</span><br><span class="line">    -e KEY=VAL            Set an environment variable (can be used multiple <span class="built_in">times</span>)</span><br><span class="line">    -l, --label KEY=VAL   Add or override a label (can be used multiple <span class="built_in">times</span>)</span><br><span class="line">    -u, --user=<span class="string">""</span>         Run as specified username or uid</span><br><span class="line">    --no-deps             Don<span class="string">'t start linked services.</span></span><br><span class="line"><span class="string">    --rm                  Remove container after run. Ignored in detached mode.</span></span><br><span class="line"><span class="string">    -p, --publish=[]      Publish a container'</span>s port(s) to the host</span><br><span class="line">    --service-ports       Run <span class="built_in">command</span> with the service<span class="string">'s ports enabled and mapped</span></span><br><span class="line"><span class="string">                          to the host.</span></span><br><span class="line"><span class="string">    --use-aliases         Use the service'</span>s network aliases <span class="keyword">in</span> the network(s) the</span><br><span class="line">                          container connects to.</span><br><span class="line">    -v, --volume=[]       Bind mount a volume (default [])</span><br><span class="line">    -T                    Disable pseudo-tty allocation. By default `docker-compose run`</span><br><span class="line">                          allocates a TTY.</span><br><span class="line">    -w, --workdir=<span class="string">""</span>      Working directory inside the container</span><br></pre></td></tr></table></figure>
+
+<p>对service运行一次性命令，例如：以下命令启动 <code>web</code> service并运行 <code>bash</code>作为其命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose run web bash</span><br></pre></td></tr></table></figure>
+
+<p>你使用的命令配合 <code>run</code> 启动一个配置被service定义的新的容器，包括卷，链接和其他细节，然而，他们有两个重要的不同点</p>
+<p>第一，通过 <code>run</code> 传递的命令覆盖了service配置中定义的命令。例如，如果 <code>web</code> service 是以 <code>bash</code> 启动，然后执行 <code>docker-compose run web python app.py</code> 会以 <code>python app.py</code> 将其覆盖</p>
+<p>第二个不同之处在于 <code>docker-compose run</code> 命令不会创建任何service配置定义的端口， 这可以防止与已打开的端口发生端口冲突。如果你想创建service的端口并映射到主机，指定 <code>--service-ports</code> 标记：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose run --service-ports web python manage.py shell</span><br></pre></td></tr></table></figure>
+
+<p>或者，可以指定 <code>--publish</code> 或者 <code>or</code> 选项手动映射端口,就像使用 <code>docker run</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose run --publish 8080:80 -p 2022:22 -p 127.0.0.1:2021:21 web python manage.py shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-scale"><a href="#docker-compose-scale" class="headerlink" title="docker-compose scale"></a>docker-compose scale</h3><blockquote>
+<p>注意：此命令已弃用，使用 <code>up</code> 命令加上 <code>--scale</code> 标记代替。注意使用 <code>up</code> 命令加上 <code>--scale</code> 标记与 <code>scale</code> 命令有一些细微的差别，因为它包含了up命令的行为</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: scale [options] [SERVICE=NUM...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -t, --timeout TIMEOUT      Specify a shutdown timeout <span class="keyword">in</span> seconds.</span><br><span class="line">                             (default: 10)</span><br></pre></td></tr></table></figure>
+
+<p>设置service运行的容器数量</p>
+<p>数字以 <code>service=num</code> 的形式指定为参数，例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose scale web=2 worker=3</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-start"><a href="#docker-compose-start" class="headerlink" title="docker-compose start"></a>docker-compose start</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: start [SERVICE...]</span><br></pre></td></tr></table></figure>
+
+<p>启动service中的容器</p>
+<h3 id="docker-compose-stop"><a href="#docker-compose-stop" class="headerlink" title="docker-compose stop"></a>docker-compose stop</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: stop [options] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -t, --timeout TIMEOUT      Specify a shutdown timeout <span class="keyword">in</span> seconds.</span><br><span class="line">                             (default: 10)</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-top"><a href="#docker-compose-top" class="headerlink" title="docker-compose top"></a>docker-compose top</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: top [SERVICE...]</span><br></pre></td></tr></table></figure>
+
+<p>显示正在运行的进程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker-compose top</span><br><span class="line">compose_service_a_1</span><br><span class="line">PID    USER   TIME   COMMAND</span><br><span class="line">----------------------------</span><br><span class="line">4060   root   0:00   top</span><br><span class="line"></span><br><span class="line">compose_service_b_1</span><br><span class="line">PID    USER   TIME   COMMAND</span><br><span class="line">----------------------------</span><br><span class="line">4115   root   0:00   top</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-up"><a href="#docker-compose-up" class="headerlink" title="docker-compose up"></a>docker-compose up</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: up [options] [--scale SERVICE=NUM...] [SERVICE...]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">    -d, --detach               Detached mode: Run containers <span class="keyword">in</span> the background,</span><br><span class="line">                               <span class="built_in">print</span> new container names. Incompatible with</span><br><span class="line">                               --abort-on-container-exit.</span><br><span class="line">    --no-color                 Produce monochrome output.</span><br><span class="line">    --quiet-pull               Pull without printing progress information</span><br><span class="line">    --no-deps                  Don<span class="string">'t start linked services.</span></span><br><span class="line"><span class="string">    --force-recreate           Recreate containers even if their configuration</span></span><br><span class="line"><span class="string">                               and image haven'</span>t changed.</span><br><span class="line">    --always-recreate-deps     Recreate dependent containers.</span><br><span class="line">                               Incompatible with --no-recreate.</span><br><span class="line">    --no-recreate              If containers already exist, don<span class="string">'t recreate</span></span><br><span class="line"><span class="string">                               them. Incompatible with --force-recreate and -V.</span></span><br><span class="line"><span class="string">    --no-build                 Don'</span>t build an image, even <span class="keyword">if</span> it<span class="string">'s missing.</span></span><br><span class="line"><span class="string">    --no-start                 Don'</span>t start the services after creating them.</span><br><span class="line">    --build                    Build images before starting containers.</span><br><span class="line">    --abort-on-container-exit  Stops all containers <span class="keyword">if</span> any container was</span><br><span class="line">                               stopped. Incompatible with -d.</span><br><span class="line">    -t, --timeout TIMEOUT      Use this timeout <span class="keyword">in</span> seconds <span class="keyword">for</span> container</span><br><span class="line">                               shutdown when attached or when containers are</span><br><span class="line">                               already running. (default: 10)</span><br><span class="line">    -V, --renew-anon-volumes   Recreate anonymous volumes instead of retrieving</span><br><span class="line">                               data from the previous containers.</span><br><span class="line">    --remove-orphans           Remove containers <span class="keyword">for</span> services not defined</span><br><span class="line">                               <span class="keyword">in</span> the Compose file.</span><br><span class="line">    --<span class="built_in">exit</span>-code-from SERVICE   Return the <span class="built_in">exit</span> code of the selected service</span><br><span class="line">                               container. Implies --abort-on-container-exit.</span><br><span class="line">    --scale SERVICE=NUM        Scale SERVICE to NUM instances. Overrides the</span><br><span class="line">                               `scale` setting <span class="keyword">in</span> the Compose file <span class="keyword">if</span> present.</span><br></pre></td></tr></table></figure>
+
+<p>构建，创建，启动并且附属到service的容器</p>
+<p>除非它们已经正在运行，此命令同样启动任何链接的service</p>
+<p><code>docker-compose up</code> 命令聚集每个容器的日志输出。当命令退出，所有容器停止。可以执行 <code>docker-compose up -d</code> 在后台启动容器，并让它们运行</p>
+<p>如果service中已存在容器，并且service的配置或者镜像在容器创建后更改，<code>docker-compose up</code> 通过停止并重新创建容器来接受更改。使用 <code>--no-recreate</code> 标志防止Compose接受更改</p>
+<p>如果你想强制Compose停止并重新创建所有容器，可以使用 <code>--force-recreate</code> 标志</p>
+<p>如果进程遇到错误，则命令的退出代码为 <code>1</code></p>
+<p>如果进程通过使用 <code>SIGINT</code> (<code>ctrl</code> + <code>C</code>) 或者 <code>SIGTERM</code>，容器将被停止，并且退出代码为 <code>0</code></p>
+<p>如果关闭阶段再次发送 <code>SIGINT</code> 或者 <code>SIGTERM</code> 信号，正在运行的容器会被杀死，并且退出代码为 <code>2</code></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/09/16/overview_of_docker_compose_cli/">
+        docker-compose build →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By wh0am11. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//www.quanjinchu.com" style="color: #767D84">wh0am11</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/quanjinchu" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

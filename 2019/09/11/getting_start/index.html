@@ -190,10 +190,10 @@
 </ol>
 <p>在此示例中，<code>redis</code>是redis容器在应用网络中的主机名，我们使用默认的6379作为redis服务的端口</p>
 <ol start="3">
-<li>另外在项目目录中创建名为<code>requirements.txt</code>的文件，并复制以下内容：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flask</span><br><span class="line">redis</span><br></pre></td></tr></table></figure>
+<li>另外在项目目录中创建名为<code>requirements.txt</code>的文件，并复制以下内容：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flask</span><br><span class="line">redis</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 <h2 id="步骤2-创建Dockerfile"><a href="#步骤2-创建Dockerfile" class="headerlink" title="步骤2: 创建Dockerfile"></a>步骤2: 创建Dockerfile</h2><p>在此步骤，编辑一个用来构建Docker image的Dockerfile。此镜像包含python应用所需的所有依赖项以及python本身</p>
 <p>在你的项目目录中，创建名为<code>Dockerfile</code>的文件，并复制以下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">FROM</span> <span class="attr">python:3.7-alpine</span></span><br><span class="line"><span class="string">WORKDIR</span> <span class="string">/code</span></span><br><span class="line"><span class="string">ENV</span> <span class="string">FLASK_APP</span> <span class="string">app.py</span></span><br><span class="line"><span class="string">ENV</span> <span class="string">FLASK_RUN_HOST</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="string">RUN</span> <span class="string">apk</span> <span class="string">add</span> <span class="bullet">--no-cache</span> <span class="string">gcc</span> <span class="string">musl-dev</span> <span class="string">linux-headers</span></span><br><span class="line"><span class="string">COPY</span> <span class="string">requirements.txt</span> <span class="string">requirements.txt</span></span><br><span class="line"><span class="string">RUN</span> <span class="string">pip</span> <span class="string">install</span> <span class="bullet">-r</span> <span class="string">requirements.txt</span></span><br><span class="line"><span class="string">COPY</span> <span class="string">.</span> <span class="string">.</span></span><br><span class="line"><span class="string">CMD</span> <span class="string">["flask",</span> <span class="string">"run"</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
@@ -238,10 +238,10 @@
 
 <p><img src="./quick-hello-world-2.png" alt="avatar"></p>
 <ol start="4">
-<li>切换到另一个终端窗口</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">composetest_web         latest              e2c21aa48cc1        4 minutes ago       93.8MB</span><br><span class="line">python                  3.4-alpine          84e6077c7ab6        7 days ago          82.5MB</span><br><span class="line">redis                   alpine              9d8fa9aa0e5b        3 weeks ago         27.5MB</span><br></pre></td></tr></table></figure>
+<li>切换到另一个终端窗口<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls</span><br><span class="line">REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">composetest_web         latest              e2c21aa48cc1        4 minutes ago       93.8MB</span><br><span class="line">python                  3.4-alpine          84e6077c7ab6        7 days ago          82.5MB</span><br><span class="line">redis                   alpine              9d8fa9aa0e5b        3 weeks ago         27.5MB</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 <p>你可以用<code>docker inspect &lt;tag or id&gt;</code>查看镜像详情</p>
 <ol start="5">
 <li>在第二个终端的项目目录中执行<code>docker-compose down</code>，或者在启动应用程序的终端中按<code>CTRL+C</code>来停止应用</li>
@@ -281,8 +281,8 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2019/09/12/overview_of_docker_compose_cli/" style="float: left;">
-        ← docker-compose cli 概述
+    <a class="pull-left" href="/2019/09/13/environmetns_variables_docker_compose/" style="float: left;">
+        ← Docker compose cli 环境变量
     </a>
     
     
